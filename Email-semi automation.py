@@ -12,7 +12,6 @@ print("6.) Host down - VMware no access")
 print("7.) Host down - Enhanced")
 print("8.) Interface down")
 print("9.) Glass Account creation")
-print("10.) Glass Account permissions change")
 
 # This is for chosing which option you want if you pick 1 it will change it from a string and turn it into a integer number
 choice = int(input("Please select the number you want to pick: "))
@@ -112,6 +111,7 @@ elif choice == 7:
                 f"Going to add this content for this at a later date for steps for the customer.\n\n"
                 f"Kind regards,\n"
                 f"{name}.")
+#Interface down
 elif choice == 8:
     print("We will need some information before we can make the email")
     # Name of the VM is stored here
@@ -121,5 +121,19 @@ elif choice == 8:
         f.write(f"Please email the customer with this!\n"
                 f"Hello team,\n\nWe have been receiving alerts for an Interface named {interface} is currently showing as down.\n"
                 f"Going to add this content for this at a later date for steps for the customer.\n\n"
+                f"Kind regards,\n"
+                f"{name}.")
+#Glass Account creation
+elif choice == 9:
+    print("We will need some information before we can make the email")
+    # Name for glass details and customer
+    customer = input("Please enter customer's name: ")
+    username = input("Enter the username here: ")
+    password = input("Enter the password here: ")
+    # This creates a file with the email layout filled in
+    with open(f'Interface down-{interface}.txt', mode='w') as f:
+        f.write(f"Please email the customer with this!\n"
+                f"Hello {customer},\n\nWe have created your glass account.\nYour username is {username} \nyour password is {password}\n"
+                f"Please log in and let me know once you have logged in.\n\n"
                 f"Kind regards,\n"
                 f"{name}.")
